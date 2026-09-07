@@ -11,9 +11,8 @@ cask "speech-md" do
 
   app "speech.md.app"
 
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-dr", "com.apple.quarantine", "#{appdir}/speech.md.app"]
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{appdir}}/speech.md.app"]
   end
 
   zap trash: "~/Library/Preferences/dev.anderson.speech-md.plist"
