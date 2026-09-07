@@ -1,6 +1,6 @@
 cask "speech-md" do
-  version "0.3.0"
-  sha256 "d9c3b85d870dfa990273cdd78806ed84b1e4b87fe782e9de8c8a0f248ff44e47"
+  version "0.4.0"
+  sha256 "026782b9d2f92fbec67b5ccc8caaef671f5b042fcfc3cc0fa754baa4a6120cf5"
 
   url "https://github.com/Andsu-dev/speech.md/releases/download/v#{version}/speech.md-#{version}.zip"
   name "speech.md"
@@ -11,11 +11,10 @@ cask "speech-md" do
 
   app "speech.md.app"
 
-  caveats <<~CAVEATS
-    speech.md is signed with a local certificate, not notarized by Apple.
-    Install it with --no-quarantine, or the first launch needs
-    right-click, then Open.
-  CAVEATS
+  postflight do
+    system_command "/usr/bin/xattr",
+                   args: ["-dr", "com.apple.quarantine", "#{appdir}/speech.md.app"]
+  end
 
   zap trash: "~/Library/Preferences/dev.anderson.speech-md.plist"
 end
