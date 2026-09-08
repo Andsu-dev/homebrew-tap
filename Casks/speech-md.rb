@@ -1,6 +1,6 @@
 cask "speech-md" do
-  version "0.6.0"
-  sha256 "7f2fd5a236bdccf88f525e6aa0e43bd2e8006440e9f02b33b53c710556f2f100"
+  version "0.7.0"
+  sha256 "077d51be917ea2d9b0111677bcb7ea1f1716a2154b335c6bd7994bfa6ba9a4ef"
 
   url "https://github.com/Andsu-dev/speech.md/releases/download/v#{version}/speech.md-#{version}.zip"
   name "speech.md"
